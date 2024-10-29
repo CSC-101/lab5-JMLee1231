@@ -18,12 +18,33 @@ class TestCases(unittest.TestCase):
         self.assertEqual(45, time.second)
 
 
+
     #### Add tests for Time.__eq__
+    def test__eq__1(self):
+        time = data.Time(4,19,45)
+        time2 = data.Time(4,19,45)
+        self.assertEqual(time,time2)
 
     #### Add tests for Time.__repr__
+    def test__eq__2(self):
+        time = data.Time(5,19,45)
+        bad = data.Time(6,12,45)
+        self.assertNotEqual(bad,time)
 
+    def test_Time_3(self):
+        time_Bad = 5
+        time = data.Time(4,5,2)
+        self.assertNotEqual(time,time_Bad)
 
+    def test_repr1(self):
+        expected = "Time is 5 hours, 6 minutes, 3 seconds"
+        time = data.Time(5,6,3)
+        self.assertAlmostEqual(repr(time),expected)
 
+    def test_repr2(self):
+        expected = "Time is 6 hours, 7 minutes, 3 seconds"
+        time = data.Time(6,7,3)
+        self.assertAlmostEqual(repr(time),expected)
 
     #### Point tests
     def test_Point_1(self):
@@ -68,3 +89,4 @@ class TestCases(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
